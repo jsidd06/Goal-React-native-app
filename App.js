@@ -1,17 +1,27 @@
 import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import {useState } from 'react';
 
 export default function App() {
+  const [userText, setUserText] = useState('');
+  const [currentText,setCurrentText] = useState([]);
+  const addTextUser = (enterData) => {
+    setUserText(enterData);
+  }
+  const handleAddClick = () => {
+    setCurrentText((addNewData) => [...addNewData,userText]);
+  }
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputObject}>
         <TextInput
           style={styles.textInputStyle}
           placeholder="Your life Goals"
+          onChangeText={addTextUser}
         />
-        <Button title="Add Goal" />
+        <Button title="Add Goal" onPress={handleAddClick} />
       </View>
       <View style={styles.goalContainer}>
-        <Text>List of Goals...</Text>
+        {currentText.map((g,index) => <Text key={index}>{g}</Text>)}
       </View>
     </View>
   );

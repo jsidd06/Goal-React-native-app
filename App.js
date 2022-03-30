@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 50,
     paddingHorizontal: 16,
+    marginTop: 50,
   },
   goalContainer: {
     flex: 5,

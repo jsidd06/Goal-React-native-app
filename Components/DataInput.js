@@ -22,10 +22,12 @@ const [userText, setUserText] = useState("");
         />
         <TextInput
           style={styles.textInputStyle}
-          placeholder="Your life Goals"
+          placeholder="Add Your Life Goals here...."
           onChangeText={addTextUser}
           value={userText}
           color="#ffffff"
+          maxLength={50}
+          placeholderTextColor="black"
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
@@ -33,6 +35,7 @@ const [userText, setUserText] = useState("");
               title="Add Goal"
               color="#8479E1"
               onPress={clickAddGoalHandler}
+              disabled={userText.length === 0}
             />
           </View>
           <View style={styles.button}>
@@ -69,6 +72,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 7,
     padding: 8,
+    color: "#311b6b",
   },
   buttonContainer: {
     flexDirection: "row",

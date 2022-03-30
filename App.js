@@ -38,7 +38,7 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <View style={styles.appContainer}>
-        <Button title="Add new Goal" onPress={modelOpen} color="#333C83" />
+        <Button title="Add new Goal" onPress={modelOpen} color="#8479E1" />
         <DataInput
           showModal={modaleIsOpen}
           addAllGoal={handleAddClick}

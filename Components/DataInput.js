@@ -22,7 +22,18 @@ const [userText, setUserText] = useState("");
           onChangeText={addTextUser}
           value={userText}
         />
-        <Button title="Add Goal" onPress={clickAddGoalHandler} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button
+              title="Add Goal"
+              color="#8479E1"
+              onPress={clickAddGoalHandler}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button title="Cancel" color="#F24A72" onPress={props.closeModal} />
+          </View>
+        </View>
       </View>
     </Modal>
   );
@@ -32,8 +43,7 @@ export default DataItem;
 const styles = StyleSheet.create({
   inputObject: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     marginBottom: 24,
     borderBottomWidth: 1,
@@ -43,7 +53,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#cccccc",
     padding: 8,
-    width: "70%",
+    width: "80%",
     marginRight: 8,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+  },
+  button: {
+    width: "30%",
+    marginHorizontal: 8,
+    padding: 8,
+    marginTop: 8,
   },
 });

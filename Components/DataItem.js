@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,Pressable } from "react-native";
 
 function DataItem(props) {
   return (
-    <View style={styles.goalStyleText}>
-      <Text style={styles.goalDataText}>{props.data}</Text>
-    </View>
+    <Pressable onPress={props.onClickDelete} >
+      <View style={styles.goalStyleText}>
+        <Text style={styles.goalDataText}>{props.data}</Text>
+      </View>
+    </Pressable>
   );
 }
 

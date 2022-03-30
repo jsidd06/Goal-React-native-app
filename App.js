@@ -16,6 +16,11 @@ export default function App() {
       { text: userText, id: Math.random().toString() },
     ]);
   };
+
+  const handleDeleteClick = (id) => {
+    console.log("delete");
+  }
+
   return (
     <View style={styles.appContainer}>
       <DataInput addAllGoal={handleAddClick} />
@@ -23,7 +28,7 @@ export default function App() {
         <FlatList
           data={currentText}
           renderItem={(goalData) => {
-            return <DataItem data={goalData.item.text} />;
+            return <DataItem data={goalData.item.text} onClickDelete={handleDeleteClick} />;
           }}
           keyExtractor={(item, index) => item.id}
           alwaysBounceVertical={false}

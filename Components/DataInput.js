@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, TextInput,View,Button} from "react-native";
+import { StyleSheet, TextInput,View,Button,Modal} from "react-native";
 
 
 function DataItem(props) {
@@ -14,15 +14,17 @@ const [userText, setUserText] = useState("");
         setUserText("");
     }
   return (
-    <View style={styles.inputObject}>
-      <TextInput
-        style={styles.textInputStyle}
-        placeholder="Your life Goals"
-        onChangeText={addTextUser}
-        value={userText}
-      />
-      <Button title="Add Goal" onPress={clickAddGoalHandler} />
-    </View>
+    <Modal animationType="slide" visible={props.showModal}>
+      <View style={styles.inputObject}>
+        <TextInput
+          style={styles.textInputStyle}
+          placeholder="Your life Goals"
+          onChangeText={addTextUser}
+          value={userText}
+        />
+        <Button title="Add Goal" onPress={clickAddGoalHandler} />
+      </View>
+    </Modal>
   );
 }
 export default DataItem;

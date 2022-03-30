@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, TextInput,View,Button,Modal} from "react-native";
+import { StyleSheet, TextInput,View,Button,Modal,Image} from "react-native";
 
 
 function DataItem(props) {
@@ -16,11 +16,13 @@ const [userText, setUserText] = useState("");
   return (
     <Modal animationType="slide" visible={props.showModal}>
       <View style={styles.inputObject}>
+        <Image style={styles.image} source={require('../assets/Images/goal.png')} />
         <TextInput
           style={styles.textInputStyle}
           placeholder="Your life Goals"
           onChangeText={addTextUser}
           value={userText}
+          color="#ffffff"
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
@@ -45,10 +47,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 24,
-    padding: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: "#cccccc",
+    backgroundColor: "#311b6b",
+    padding: 20,
+  },
+  image : {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
   textInputStyle: {
     borderWidth: 1,

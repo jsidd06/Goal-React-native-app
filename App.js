@@ -5,6 +5,7 @@ import {
   Button,
 } from "react-native";
 import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
 import DataItem from "./Components/DataItem";
 import DataInput from "./Components/DataInput";
 
@@ -34,26 +35,33 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button title="Add new Goal" onPress={modelOpen} color="#333C83" />
-      <DataInput  showModal={modaleIsOpen} addAllGoal={handleAddClick} onAddCancel={modelClose} />
-      <View style={styles.goalContainer}>
-        <FlatList
-          data={currentText}
-          renderItem={(goalData) => {
-            return (
-              <DataItem
-                data={goalData.item.text}
-                onClickDelete={handleDeleteClick}
-                id={goalData.item.id}
-              />
-            );
-          }}
-          keyExtractor={(item, index) => item.id}
-          alwaysBounceVertical={false}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appContainer}>
+        <Button title="Add new Goal" onPress={modelOpen} color="#333C83" />
+        <DataInput
+          showModal={modaleIsOpen}
+          addAllGoal={handleAddClick}
+          onAddCancel={modelClose}
         />
+        <View style={styles.goalContainer}>
+          <FlatList
+            data={currentText}
+            renderItem={(goalData) => {
+              return (
+                <DataItem
+                  data={goalData.item.text}
+                  onClickDelete={handleDeleteClick}
+                  id={goalData.item.id}
+                />
+              );
+            }}
+            keyExtractor={(item, index) => item.id}
+            alwaysBounceVertical={false}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 

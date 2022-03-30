@@ -16,7 +16,10 @@ const [userText, setUserText] = useState("");
   return (
     <Modal animationType="slide" visible={props.showModal}>
       <View style={styles.inputObject}>
-        <Image style={styles.image} source={require('../assets/Images/goal.png')} />
+        <Image
+          style={styles.image}
+          source={require("../assets/Images/goal.png")}
+        />
         <TextInput
           style={styles.textInputStyle}
           placeholder="Your life Goals"
@@ -33,7 +36,11 @@ const [userText, setUserText] = useState("");
             />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" color="#F24A72" onPress={props.onAddCancel} />
+            <Button
+              title="Cancel"
+              color="#F24A72"
+              onPress={props.onAddCancel}
+            />
           </View>
         </View>
       </View>
@@ -57,10 +64,11 @@ const styles = StyleSheet.create({
   },
   textInputStyle: {
     borderWidth: 1,
-    borderColor: "#cccccc",
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
     width: "100%",
+    borderRadius: 7,
     padding: 8,
-    marginRight: 8,
   },
   buttonContainer: {
     flexDirection: "row",

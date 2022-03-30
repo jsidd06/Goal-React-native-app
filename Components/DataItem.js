@@ -18,7 +18,7 @@ export default DataItem;
 
 const styles = StyleSheet.create({
   goalStyleText: {
-    backgroundColor: "#22577E",
+    backgroundColor: "#8479E1",
     borderRadius: 10,
     marginBottom: 8,
     marginTop: 8,

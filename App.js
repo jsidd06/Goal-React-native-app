@@ -21,7 +21,11 @@ export default function App() {
         <Button title="Add Goal" onPress={handleAddClick} />
       </View>
       <View style={styles.goalContainer}>
-        {currentText.map((g,index) => <Text key={index}>{g}</Text>)}
+        {currentText.map((goalData, index) => (
+          <View style={styles.goalStyleText} key={index}>
+            <Text style={styles.goalDataText}>{goalData}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -31,25 +35,36 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     padding: 50,
-    paddingHorizontal : 16,
+    paddingHorizontal: 16,
   },
-  inputObject:{
+  inputObject: {
     flex: 1,
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
-    marginBottom:24,
-    borderBottomWidth:1,
-    borderBottomColor:"#cccccc"
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
   },
-  textInputStyle:{
-    borderWidth:1,
-    borderColor:"#cccccc",
-    padding:8,
-    width:"70%",
-    marginRight : 8,
+  textInputStyle: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    padding: 8,
+    width: "70%",
+    marginRight: 8,
   },
-    goalContainer: {
-      flex : 5,
-  }
+  goalContainer: {
+    flex: 5,
+  },
+  goalStyleText: {
+    backgroundColor: "#333C83",
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 8,
+  },
+  goalDataText: {
+    color: "#ffffff",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });

@@ -1,15 +1,25 @@
-import { StyleSheet, Text, View,TextInput,Button,ScrollView } from 'react-native';
-import {useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  FlatList,
+} from "react-native";
+import { useState } from "react";
 
 export default function App() {
-  const [userText, setUserText] = useState('');
-  const [currentText,setCurrentText] = useState([]);
+  const [userText, setUserText] = useState("");
+  const [currentText, setCurrentText] = useState([]);
   const addTextUser = (enterData) => {
     setUserText(enterData);
-  }
+  };
   const handleAddClick = () => {
-    setCurrentText((addNewData) => [...addNewData,userText]);
-  }
+    setCurrentText((addNewData) => [
+      ...addNewData,
+      { text: userText, id: Math.random().toString() },
+    ]);
+  };
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputObject}>
@@ -21,13 +31,18 @@ export default function App() {
         <Button title="Add Goal" onPress={handleAddClick} />
       </View>
       <View style={styles.goalContainer}>
-        <ScrollView alwaysBounceVertical={false}>
-        {currentText.map((goalData, index) => (
-          <View style={styles.goalStyleText} key={index}>
-            <Text style={styles.goalDataText}>{goalData}</Text>
-          </View>
-        ))}
-        </ScrollView>
+        <FlatList
+          data={currentText}
+          renderItem={(goalData) => {
+            return (
+              <View style={styles.goalStyleText}>
+                <Text style={styles.goalDataText}>{goalData.item.text}</Text>
+              </View>
+            );
+          }}
+          keyExtractor={(item, index) => item.id}
+          alwaysBounceVertical={false}
+        />
       </View>
     </View>
   );

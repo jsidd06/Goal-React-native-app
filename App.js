@@ -18,7 +18,9 @@ export default function App() {
   };
 
   const handleDeleteClick = (id) => {
-    console.log("delete");
+    setCurrentText((addNewData) => {
+      return addNewData.filter((data) => data.id != id);
+    });
   }
 
   return (
@@ -28,7 +30,7 @@ export default function App() {
         <FlatList
           data={currentText}
           renderItem={(goalData) => {
-            return <DataItem data={goalData.item.text} onClickDelete={handleDeleteClick} />;
+            return <DataItem data={goalData.item.text} onClickDelete={handleDeleteClick} id={goalData.item.id} />;
           }}
           keyExtractor={(item, index) => item.id}
           alwaysBounceVertical={false}

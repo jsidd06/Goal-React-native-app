@@ -18,11 +18,12 @@ export default DataItem;
 
 const styles = StyleSheet.create({
   goalStyleText: {
-    backgroundColor: "#333C83",
+    backgroundColor: "#22577E",
     borderRadius: 10,
     marginBottom: 8,
+    marginTop: 8,
   },
-  pressedData :{
+  pressedData: {
     opacity: 0.5,
   },
   goalDataText: {

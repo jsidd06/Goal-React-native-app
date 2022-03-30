@@ -31,7 +31,7 @@ const [userText, setUserText] = useState("");
             />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" color="#F24A72" onPress={props.closeModal} />
+            <Button title="Cancel" color="#F24A72" onPress={props.onAddCancel} />
           </View>
         </View>
       </View>
@@ -46,21 +46,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 24,
+    padding: 24,
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
   },
   textInputStyle: {
     borderWidth: 1,
     borderColor: "#cccccc",
+    width: "100%",
     padding: 8,
-    width: "80%",
     marginRight: 8,
   },
   buttonContainer: {
     flexDirection: "row",
+    marginTop: 8,
   },
   button: {
-    width: "30%",
+    width: 100,
     marginHorizontal: 8,
     padding: 8,
     marginTop: 8,

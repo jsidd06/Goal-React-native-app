@@ -16,22 +16,27 @@ export default function App() {
       ...addNewData,
       { text: userText, id: Math.random().toString() },
     ]);
+    modelClose();
   };
 
   const handleDeleteClick = (id) => {
     setCurrentText((addNewData) => {
       return addNewData.filter((data) => data.id != id);
     });
+    
   }
 
   const modelOpen = () => {
     setModaleIsOpen(true);
   }
+  const modelClose = () => {
+    setModaleIsOpen(false);
+  }
 
   return (
     <View style={styles.appContainer}>
       <Button title="Add new Goal" onPress={modelOpen} color="#333C83" />
-      <DataInput  showModal={modaleIsOpen} addAllGoal={handleAddClick} />
+      <DataInput  showModal={modaleIsOpen} addAllGoal={handleAddClick} onAddCancel={modelClose} />
       <View style={styles.goalContainer}>
         <FlatList
           data={currentText}
